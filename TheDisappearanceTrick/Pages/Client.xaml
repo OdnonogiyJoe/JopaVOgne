@@ -1,0 +1,67 @@
+﻿<Page x:Class="TheDisappearanceTrick.Pages.Client"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TheDisappearanceTrick.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Client" Background="#FFFAEB">
+    <Grid>
+        <!--#region Что в меню?-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" HorizontalAlignment="Stretch" >
+            <Menu Background="IndianRed" Height="35">
+                <MenuItem Header="Создание заказа" Height="35" Click="Order_Click" Background="#FDF9ED"/>
+                <MenuItem Header="Продукт" Click="Product_Click" Background="#FDF9ED" />
+                <MenuItem Header="Материалы" Click="Material_Click" Background="#FDF9ED" />
+                <MenuItem Header="Клиенты" Click="Client_Click" Background="#FDF9ED" />
+                <MenuItem Header="Работники" Click="LostSoul_Click" Background="#FDF9ED" />
+            </Menu>
+        </StackPanel>
+        <!--#Endregion-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+            <ListView Grid.Column="0" ItemsSource="{Binding Clients}" SelectedItem="{Binding SelectedClient}"  Margin="2,0,2,0" Background="#FFFAEB">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding Surname}"/>
+                        <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding FatherName}"/>
+                        <GridViewColumn Header="Телефон" DisplayMemberBinding="{Binding Telephone}"/>
+                        <GridViewColumn Header="Почта" DisplayMemberBinding="{Binding Email}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <StackPanel Grid.Row="1" Grid.Column="1">
+
+                <TextBlock Text="Имя" Margin="2,4,2,4"/>
+                <TextBox Text="{Binding SelectedClient.Name}" Margin="2,4,2,4"/>
+
+                <TextBlock Text="Фамилия" Margin="2,4,2,4"/>
+                <TextBox Text="{Binding SelectedClient.Surname}" Margin="2,4,2,4"/>
+
+                <TextBlock Text="Отчество" Margin="2,4,2,4"/>
+                <TextBox Text="{Binding SelectedClient.FatherName}" Margin="2,4,2,4"/>
+
+                <TextBlock Text="Телефон" Margin="2,4,2,4"/>
+                <TextBox Text="{Binding SelectedClient.Telephone}" Margin="2,4,2,4"/>
+
+                <TextBlock Text="Почта" Margin="2,4,2,4"/>
+                <TextBox Text="{Binding SelectedClient.Email}" Margin="2,4,2,4"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="1">
+                <Button Content="Добавить" Padding="5" Margin="5" Command="{Binding AddClient}"/>
+                <Button Content="Сохранить" Padding="5" Margin="5" Command="{Binding SaveClient}"/>
+                <Button Content="Удалить" Padding="5" Margin="5" Command="{Binding DeleteClient}"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

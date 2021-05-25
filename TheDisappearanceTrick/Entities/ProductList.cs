@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TheDisappearanceTrick.Entities
+{
+    public class ProductList //
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Count { get; set; }
+        public string Price { get; set; }
+        public int Weight { get; set; }
+
+        
+        public List<Order> Orders { get; set; }
+        
+    }
+}

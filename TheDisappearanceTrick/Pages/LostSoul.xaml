@@ -1,0 +1,125 @@
+﻿<Page x:Class="TheDisappearanceTrick.Pages.LostSoul"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TheDisappearanceTrick.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="LostSoul" Background="#FFFAEB">
+
+    <Grid>
+        <!--#region Что в меню?-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" HorizontalAlignment="Stretch" >
+            <Menu Background="IndianRed" Height="35">
+                <MenuItem Header="Создание заказа" Height="35" Click="Order_Click" Background="#FDF9ED"/>
+                <MenuItem Header="Продукт" Click="Product_Click" Background="#FDF9ED" />
+                <MenuItem Header="Материалы" Click="Material_Click" Background="#FDF9ED" />
+                <MenuItem Header="Клиенты" Click="Client_Click" Background="#FDF9ED" />
+                <MenuItem Header="Работники" Click="LostSoul_Click" Background="#FDF9ED" />
+            </Menu>
+        </StackPanel>
+        <!--#Endregion-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <!--ЦЕХ А-->
+                <StackPanel Grid.Row="0">
+                    <TextBlock Text="Цех А" HorizontalAlignment="Center" FontSize="50" FontWeight="Bold" Foreground="IndianRed" FontFamily="Impact" />
+                </StackPanel>
+                <StackPanel Grid.Row="1">
+                    <ListView Grid.Column="0" Grid.Row="1" ItemsSource="{Binding LostSouls}" SelectedItem="{Binding SelectedLostSoul}"  Margin="2,0,2,0" Background="#FFFAEB">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name}"/>
+                                <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding Surname}"/>
+                                <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding FatherName}"/>
+                                <GridViewColumn Header="Телефон" DisplayMemberBinding="{Binding Telephone}"/>
+                                <GridViewColumn Header="Почта" DisplayMemberBinding="{Binding Email}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </StackPanel>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+            </Grid>
+            <!--ЦЕХ А-->
+
+            <Grid Grid.Column="2">
+                <!--ЦЕХ Б-->
+                <TextBlock Text="Цех Б" HorizontalAlignment="Center" FontSize="50" FontWeight="Bold" Foreground="IndianRed" FontFamily="Impact" />
+                <StackPanel Grid.Row="1">
+                    <ListView Grid.Column="0" Grid.Row="1" ItemsSource="{Binding LostSouls}" SelectedItem="{Binding SelectedLostSoul}"  Margin="2,0,2,0" Background="#FFFAEB">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name}"/>
+                                <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding Surname}"/>
+                                <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding FatherName}"/>
+                                <GridViewColumn Header="Телефон" DisplayMemberBinding="{Binding Telephone}"/>
+                                <GridViewColumn Header="Почта" DisplayMemberBinding="{Binding Email}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </StackPanel>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+            </Grid>
+            <!--ЦЕХ Б-->
+
+            <Grid Grid.Row="1" Grid.Column="1">
+                <!--Занесение в батраки-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="2" Margin="0,10,0,0" HorizontalAlignment="Center" Width="247" Height="95" VerticalAlignment="Top">
+                    <StackPanel.Background>
+                        <ImageBrush ImageSource="/Pages/1.png" Stretch="UniformToFill" />
+                    </StackPanel.Background>
+                </StackPanel>
+                <StackPanel Grid.Row="0">
+                    <StackPanel.Background>
+                        <ImageBrush  TileMode="None" Stretch="Uniform"/>
+                    </StackPanel.Background>
+                    <TextBlock Text="Имя" Margin="2,4,2,4" />
+                    <TextBox Text="{Binding SelectedLostSoul.Name}" Margin="2,4,2,4"/>
+
+                    <TextBlock Text="Фамилия" Margin="2,4,2,4"/>
+                    <TextBox Text="{Binding SelectedLostSoul.Surname}" Margin="2,4,2,4"/>
+
+                    <TextBlock Text="Отчество-во" Margin="2,4,2,4"/>
+                    <TextBox Text="{Binding SelectedLostSoul.FatherName}" Margin="2,4,2,4"/>
+
+                    <TextBlock Text="Телефон" Margin="2,4,2,4"/>
+                    <TextBox Text="{Binding SelectedLostSoul.Telephone}" Margin="2,4,2,4"/>
+
+                    <TextBlock Text="Почта" Margin="2,4,2,4"/>
+                    <TextBox Text="{Binding SelectedLostSoul.Email}" Margin="2,4,2,4"/>
+
+
+                </StackPanel>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Добавить" Padding="5" Margin="5" Command="{Binding AddLostSoul}" HorizontalAlignment="Left"/>
+                    <Button Content="Сохранить" Padding="5" Margin="5" Command="{Binding SaveLostSoul}" HorizontalAlignment="Center"/>
+                    <Button Content="Удалить" Padding="5" Margin="5" Command="{Binding DeleteLostSoul}" HorizontalAlignment="Right"/>
+                    </StackPanel>
+            </Grid>
+            <!--Занесение в батраки-->
+
+        </Grid>
+    </Grid>
+</Page>
