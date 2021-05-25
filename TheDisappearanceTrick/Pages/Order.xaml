@@ -11,7 +11,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" MinHeight="35"/>
-            <RowDefinition/>
+            <RowDefinition />
             <RowDefinition Height="30"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
@@ -36,7 +36,17 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-
+            <ListView Grid.Row="1" ItemsSource="{Binding Clients}" SelectedItem="{Binding SelectedClient}"  Margin="2" Background="#FFFAEB">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Id клиента" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="Товар" DisplayMemberBinding="{Binding Surname}"/>
+                        <GridViewColumn Header="Кол-во" DisplayMemberBinding="{Binding FatherName}"/>
+                        <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Telephone}"/>
+                        <GridViewColumn Header="Вес" DisplayMemberBinding="{Binding Email}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
             <Grid Grid.Column="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -58,18 +68,18 @@
 
 
                 <TextBlock Text="Кол-во:" Margin="2,4,2,4"/>
-                <ComboBox Text="{Binding SelectedClient.Telephone}" Margin="2,4,2,4"/>
+                <ComboBox Text="{Binding SelectedProductList.Count}" Margin="2,4,2,4"/>
 
                 <TextBlock Text="Цена:" Margin="2,4,2,4"/>
-                <ComboBox Text="{Binding SelectedClient.Telephone}" Margin="2,4,2,4"/>
+                <ComboBox Text="{Binding SelectedProductList.Price}" Margin="2,4,2,4"/>
 
                 <TextBlock Text="Вес:" Margin="2,4,2,4"/>
-                <ComboBox Text="{Binding SelectedClient.Telephone}" Margin="2,4,2,4"/>
+                <ComboBox Text="{Binding SelectedProductList.Weight}" Margin="2,4,2,4"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1">
                 <TextBlock Text="Id Клиента:"/>
-                <ComboBox Text="{Binding SelectedClient.Telephone}" Margin="2,4,2,4"/>
+                <ComboBox Text="{Binding SelectedClient.Id}" Margin="2,4,2,4"/>
             </StackPanel>
         </Grid>
     </Grid>

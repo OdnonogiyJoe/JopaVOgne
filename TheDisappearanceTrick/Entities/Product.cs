@@ -14,7 +14,6 @@ namespace TheDisappearanceTrick.Entities
         public string Price { get; set; }
         public int Weight { get; set; }
         public string Name1 { get; set; }
-        public List<ProductList> ProductLists { get; set; }
 
         public Workshop Workshops { get; set; }
         public Material Materials { get; set; }

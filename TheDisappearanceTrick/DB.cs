@@ -23,7 +23,7 @@ namespace TheDisappearanceTrick
         {
             var sb = new SqlConnectionStringBuilder();
             sb.DataSource = @"DESKTOP-G7E40EF";
-            sb.InitialCatalog = "Vsplil";
+            sb.InitialCatalog = "Hohoh";
             sb.IntegratedSecurity = true;
             optionsBuilder.UseSqlServer(sb.ToString());
             base.OnConfiguring(optionsBuilder);
